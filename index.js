@@ -2,6 +2,8 @@ const express = require('express')
 const helmet = require('helmet')
 const cors = require('cors')
 const userRouter = require('./routers/users-router')
+const restrict = require('./middlewares/restrict')
+const issuesRouter = require('./routers/issues-model')
 // const bcrypt = require('bcryptjs')
 // const cookieParser = require('cookie-parser')
 
@@ -13,6 +15,7 @@ server.use(helmet())
 server.use(cors())
 
 server.use('/api/auth', userRouter)
+server.use('/api/issues', restrict, issuesRouter)
 
 server.use((err, req, res, next) => {
 	console.log(err)
