@@ -10,8 +10,9 @@ function restrict() {
 				const token = req.headers.authorization || req.cookies.token
 
 				jwt.verify(token, process.env.SECRET, (err, decoded) => {
+					//! console log decoded?
 					if (err) {
-						return res.status(401).json({ message: 'STAAAAAY OUT' })
+						return res.status(401).json(authError)
 					}
 
 					next()
