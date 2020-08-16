@@ -3,7 +3,6 @@ const { json } = require("express");
 
 function restrict() {
   return async (req, res, next) => {
-    console.log("Restrict");
     const authError = { message: "Not authorized" };
     try {
       const token = req.headers.authorization || req.cookies.token;

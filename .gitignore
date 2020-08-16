@@ -87,3 +87,11 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+
+# client node_modules
+./client/node_modules/
+
+# client parcel .cache + dist
+./client/dist/
+./client/.cache/
